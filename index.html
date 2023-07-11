@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <!--
+
+Created by Wyatt Robinson of the class of 2024
+    2022 & 2023
+    
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <script src="main.js"></script>
+    <title>eNews Generator</title>
+    <meta name="description" content="BHS Morning Show eNews Generator">
+</head>
+<body onload="init()">
+    <p> <!-- announcement input box label -->
+        <label for="annc" style="font-size: 19;">Insert announcements below in order of priority. Separate each announcement with: <b>|</b> (<kbd>Shift + \ </kbd>)</label>
+    </p>
+
+    <p> <!-- announcement input box -->
+        <textarea id="annc" class="large-box" name="announcements"></textarea>
+    </p>
+
+    <div id="options"> <!-- start of options -->
+
+    <div class="options-section" id="general-options"><ul>
+    <li class="caret">-- general --</li>
+    <ul class="nested">
+    <li> <!-- input cycle day -->
+        <label for="cd">Cycle day:</label>  
+        <input type="number" name="cycle-day" id="cd">
+    </li>
+    <li> <!-- toggle image -->
+        <label for="ti" class="toggleable">Use text instead of image?</label>
+        <input type="checkbox" class="toggleable" name="toggle-image" id="ti" value="on">
+    </li>
+    </ul>
+    </div>
+    
+    <div id="segments" class="options-section">
+    <li class="caret">-- segments --</li>
+    <ul class="nested">
+    <li> <!-- input fun fact -->
+        <label for="ff" class="toggleable">Include Fun Fact segment?</label>
+        <input type="checkbox" name="fun-fact" id="ff" class="toggleable" onclick="SubToggle()">
+        <div id="ff-inpt" class="submenu">
+            <label for="ff-f">Fact:</label>
+            <input type="text" name="fact" id="ff-f">
+        </div>
+    </li>
+    <li> <!-- input word wednesday -->
+        <label class="toggleable" for="ww">Include "Word Wednesdays" segment?</label>
+        <input type="checkbox" name="word-wednesdays" id="ww" class="toggleable" onclick="SubToggle()">
+        <br><div id="ww-inpt" class="submenu" style="display: none;">
+            <label for="ww-word">Word:</label>
+            <input type="text" name="word" id="ww-word">
+            <br>
+            <label for="ww-def">Definition:</label>
+            <input type="text" name="definition" id="ww-def">
+            <br>
+            <label for="ww-strike-out">Strike out improper day?</label>
+            <input type="checkbox" name="toggle strike out" id="ww-strike-out">
+        </div>
+    </li>
+    </ul></div>
+
+    <div class="options-section" id="customization">
+    <li class="caret">-- customization --</li>
+    <ul class="nested">
+    <li> <!-- Customize "Created By" text -->
+         <label for="left-footer-input">Customize left footer text:</label>
+         <input type="text" name="left footer" id="left-footer-input" value="Created by Wyatt Robinson.">
+    </li>
+    <li>
+        <label for="cc" class="toggleable">Custom colors?</label>
+        <input type="checkbox" name="custom-colors-toggle" id="cc" class="toggleable" onclick="SubToggle()">
+        <br><div class="submenu" id="cc-inpt" style="display: none;">
+            <label for="cc-font-color">Font color:</label>
+            <input type="color" name="cc-font-color" id="cc-font-color" value="#ffffff">
+            <br>
+            <label for="cc-bg-color">Background color:</label>
+            <input type="color" name="cc-bg-color" id="cc-bg-color" value="#0506b0">
+            <br>
+            <label for="cc-border-color">Border color:</label>
+            <input type="color" name="cc-border-color" id="cc-border-color" value="#000000">
+        </div>
+    </li>
+    <li>
+        <label for="cs" class="toggleable">Custom cell style? (advanced)</label>
+        <input type="checkbox" name="custom-style-toggle" id="cs" onclick="SubToggle()">
+        <br><div id="cs-inpt" class="submenu">
+            <label for="custom-style">Custom cell styling:</label>
+            <br><textarea name="custom-style" id="custom-style">border: 1px solid black; border-collapse: collapse; border-radius: 20px; width: 50%; background-color:#0506b0; color: white; padding:10px; text-align: center;</textarea>
+        </div>
+    </li>
+    <li>
+        <label for="ss" class="toggleable">Custom span style? (advanced)</label>
+        <input type="checkbox" name="span-style-toggle" id="ss" onclick="SubToggle()">
+        <br><div id="ss-inpt" class="submenu">
+            <label for="span-style">Replace <kbd>{</kbd> & <kbd>}</kbd> with span element containing below style:</label>
+            <br><textarea name="span-style" id="span-style"></textarea>
+        </div>
+    </li>
+    <li>
+        <label for="sg" class="toggleable">Step gradient? (advanced)</label>
+        <input type="checkbox" name="step-gradient-toggle" id="sg" onclick="SubToggle()">
+        <br><div id="sg-inpt" class="submenu">
+            <label for="step-gradient">Colors (seperated with <kbd>|</kbd> ):</label>
+            <br><textarea name="span-style" id="step-gradient"></textarea>
+            <br><label for="toggle-by-cell">By cell?</label>
+            <input type="checkbox" name="toggle-by-cell" id="toggle-by-cell">
+        </div>
+    </li>
+    </ul>
+    </div>
+
+    </div> <!-- end of options -->
+
+
+
+    <button onclick="gen()">Generate</button>
+    
+    <p>Output:</p>
+
+    <textarea class="large-box" id="output" readonly></textarea>
+
+    <p>Preview:</p>
+
+    <div id="preview" width="600px"></div>
+</body>
+</html>

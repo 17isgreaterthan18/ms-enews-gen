@@ -1,0 +1,71 @@
+body {
+    background-color: lightgray;
+}
+
+#annc {
+    display: block;
+    width: 50%;
+    height: 400;
+}
+kbd {
+    background-color: whitesmoke;
+    border-color: rgb(183, 183, 183);
+    border-style: solid;
+    border-width: 1px;
+}
+.submenu {
+    padding-left: 20px;
+    display: none;
+}
+
+
+/* tree stuffs */
+#options ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+.caret {
+    cursor: pointer;
+    user-select: none;
+}
+.caret::after {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 0.8em;
+    transform: rotate(90deg);
+}
+.caret-down::after {
+    transform: unset;
+  }
+.nested {
+    display: block;
+}
+.active {
+    display: none;
+}
+
+/* option sections stuffs */
+.options-section {
+    border-left: 4px solid;
+    border-radius: 4px;
+}
+.options-section li {
+    padding-left: 10px;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+.options-section::first-line { /* bold first line of options section */
+    font-weight: bold;
+}
+.toggleable{cursor: pointer;}
+/* define colors for options sections */
+#general-options {border-color: slateblue;}
+#segments {border-color: palevioletred;}
+#customization {border-color: teal;}
