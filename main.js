@@ -8,7 +8,7 @@ Created by Wyatt Robinson of the class of 2024
 const DEFAULT_BG_COLOR = '#0506b0';
 const DEFAULT_COLOR = 'white';
 const DEFAULT_BORDER_COLOR = 'black';
-const DEFAULT_STYLE = 'border-collapse: collapse; border-radius: 20px; width: 50%; padding: 10px; text-align: center;';
+const DEFAULT_STYLE = 'border-collapse: collapse; border-radius: 20px; border-width: 1px; border-style: solid; width: 50%; padding: 10px; text-align: center;';
 
 function gen() {
     const INPT_announcements = document.getElementById('annc').value;
