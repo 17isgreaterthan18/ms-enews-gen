@@ -119,7 +119,7 @@ function gen() {
     o += '</table>'; // close table
     
     // footer
-    footer = `<span style=\"float: left; font-size: 15; background-color: transparent;\">${document.getElementById('left-footer-input').value}</span><span style=\"float: right; font-size: 15; background-color: transparent;\">Submit announcements &amp; song requests <a href=\"https://www.bcsd.org/Domain/261\">here</a>.</span>`;
+    footer = `<span style=\"float: left; font-size: 15; background-color: transparent;\">${document.getElementById('left-footer-input').value}</span><span style=\"float: right; font-size: 15; background-color: transparent;\">Submit announcements <a href=\"https://www.bcsd.org/Domain/261\">here</a>.</span>`;
     o += footer;
     
     // display / export
