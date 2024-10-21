@@ -1,7 +1,7 @@
 /*
 
 Created by Wyatt Robinson of the class of 2024
-   2022 & 2023
+   2022 & 2023 & 2024
 
 */
 
@@ -30,7 +30,9 @@ function gen() {
     const INPT_custom_color_bg = document.getElementById('cc-bg-color').value;
     const INPT_custom_color_border = document.getElementById('cc-border-color').value;
     const INPT_step_gradient_colors = document.getElementById('step-gradient').value.split('|');
-    
+    const INPT_left_footer = document.getElementById('left-footer-input').value;
+    const INPT_right_footer = document.getElementById('right-footer-input').value;
+
     // table opening tag
     let o = '<table style=\"background-color: transparent;\">';
 
@@ -70,7 +72,9 @@ function gen() {
     annc = annc.replaceAll('[', '<b>').replaceAll(']', '</b>'); // easy bolding with [ & ]
     annc = annc.replaceAll('\`', '<br>'); // easy line-break with `
     if (INPT_toggle_custom_span_style) { // custom span style
-        annc = annc.replaceAll('{', `<span style=\"${INPT_span_style}\">`).replaceAll('}', '</span>');
+        annc = annc
+            .replaceAll('{', `<span style=\"${INPT_span_style}\">`)
+            .replaceAll('}', '</span>');
     }
 
     const divisor = INPT_toggle_sg_by_cell ? 1 : 2;
@@ -119,7 +123,7 @@ function gen() {
     o += '</table>'; // close table
     
     // footer
-    footer = `<span style=\"float: left; font-size: 15; background-color: transparent;\">${document.getElementById('left-footer-input').value}</span><span style=\"float: right; font-size: 15; background-color: transparent;\">Submit announcements <a href=\"https://www.bcsd.org/Domain/261\">here</a>.</span>`;
+    footer = `<span style=\"float: left; font-size: 15; background-color: transparent;\">${INPT_left_footer}</span><span style=\"float: right; font-size: 15; background-color: transparent;\">${INPT_right_footer}</span>`;
     o += footer;
     
     // display / export

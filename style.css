@@ -5,7 +5,7 @@ body {
 #annc {
     display: block;
     width: 50%;
-    height: 400;
+    height: 400px;
 }
 kbd {
     background-color: whitesmoke;
@@ -29,6 +29,7 @@ kbd {
 .caret {
     cursor: pointer;
     user-select: none;
+    font-weight: bold;
 }
 .caret::after {
     content: "\25B6";
